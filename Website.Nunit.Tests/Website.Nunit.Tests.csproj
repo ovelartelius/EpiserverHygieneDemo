@@ -121,6 +121,7 @@
   <ItemGroup>
     <Compile Include="ContentTypesHygieneTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScheduleTaskHygieneTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Website\Website.csproj">
