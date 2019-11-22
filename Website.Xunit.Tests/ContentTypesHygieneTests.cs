@@ -169,7 +169,7 @@ namespace Website.Xunit.Tests
                 {
                     if (type.GetCustomAttributes(typeof(ContentTypeAttribute), true).Length > 0)
                     {
-                        bool isMediaData = (type.BaseType == typeof(MediaData));
+                        bool isMediaData = (type.BaseType == typeof(MediaData) || type.BaseType.IsSubclassOf(typeof(MediaData)));
                         bool mediaDescriptorAttributeExist = type.GetCustomAttributes(typeof(MediaDescriptorAttribute), true).Any();
                         // If the class contains MediaDescriptorAttribute it is a Media type so we don't need to check UrlPath.
                         if (!mediaDescriptorAttributeExist && !isMediaData)

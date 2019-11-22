@@ -44,7 +44,7 @@ namespace Website.Models.Blocks
 
         [Display(
             GroupName = SystemTabNames.Content,
-            Order = 4)]
+            Order = 5)]
         [DefaultValue(FilterSortOrder.PublishedDescending)]
         [UIHint("SortOrder")]
         [BackingType(typeof(PropertyNumber))]
@@ -52,23 +52,23 @@ namespace Website.Models.Blocks
 
         [Display(
             GroupName = SystemTabNames.Content,
-            Order = 5)]
+            Order = 6)]
         [Required]
         public virtual PageReference Root { get; set; }
 
         [Display(
             GroupName = SystemTabNames.Content,
-            Order = 6)]
+            Order = 7)]
         public virtual PageType PageTypeFilter{get; set;}
 
         [Display(
             GroupName = SystemTabNames.Content,
-            Order = 7)]
+            Order = 8)]
         public virtual CategoryList CategoryFilter { get; set; }
 
         [Display(
             GroupName = SystemTabNames.Content,
-            Order = 8)]
+            Order = 9)]
         public virtual bool Recursive { get; set; }
 
         #region IInitializableContent
