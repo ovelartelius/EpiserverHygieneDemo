@@ -4,13 +4,12 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using NUnit.Framework;
+using Xunit;
 using EPiServer.PlugIn;
 
-namespace Website.Nunit.Tests
+namespace Website.Xunit.Tests
 {
-    [TestFixture]
-    public class ScheduleTaskHygieneTests
+    public class SchedulePluginsHygieneTests
     {
         ///// <summary>
         ///// The following properties describes which ScheduledPlugIn attributes that should be checked.
@@ -27,14 +26,14 @@ namespace Website.Nunit.Tests
         private readonly Assembly _assembly;
         private readonly IEnumerable<Type> _classes;
 
-        public ScheduleTaskHygieneTests()
+        public SchedulePluginsHygieneTests()
         {
             _assembly = typeof(Website.Global).Assembly;
             _classes = GetSchedulePlugInClasses();
             Console.Out.WriteLine($"Scanning {_classes.Count()} plugins");
         }
 
-        [Test]
+        [Fact]
         public void CheckSchedulePlugInGuidAttributeTest()
         {
             if (Check_ScheduledPlugInGuid)
@@ -55,7 +54,7 @@ namespace Website.Nunit.Tests
             }
         }
 
-        [Test]
+        [Fact]
         public void CheckSchedulePlugInForDoubleGuidTest()
         {
             if (Check_ScheduledPlugInGuid)
@@ -80,7 +79,7 @@ namespace Website.Nunit.Tests
             }
         }
 
-        [Test]
+        [Fact]
         public void CheckSchedulePlugInDisplayNameAttributeTest()
         {
             if (Check_ScheduledPlugInDisplayName)
@@ -101,7 +100,7 @@ namespace Website.Nunit.Tests
             }
         }
 
-        [Test]
+        [Fact]
         public void CheckSchedulePlugInDescriptionAttributeTest()
         {
             if (Check_ScheduledPlugInDescription)
@@ -122,7 +121,7 @@ namespace Website.Nunit.Tests
             }
         }
 
-        [Test]
+        [Fact]
         public void CheckSchedulePlugInLanguagePathAttributeTest()
         {
             if (Check_ScheduledPlugInLanguagePath)
@@ -143,7 +142,7 @@ namespace Website.Nunit.Tests
             }
         }
 
-        [Test]
+        [Fact]
         public void CheckSchedulePlugInSortIndexAttributeTest()
         {
             if (Check_ScheduledPlugInSortIndex)
@@ -164,7 +163,7 @@ namespace Website.Nunit.Tests
             }
         }
 
-        [Test]
+        [Fact]
         public void CheckSchedulePlugInIntervalLengthAttributeTest()
         {
             if (Check_ScheduledPlugInIntervalLength)
@@ -206,7 +205,7 @@ namespace Website.Nunit.Tests
         //    }
         //}
 
-        [Test]
+        [Fact]
         public void CheckSchedulePlugInHelpFileAttributeTest()
         {
             if (Check_ScheduledPlugInHelpFile)

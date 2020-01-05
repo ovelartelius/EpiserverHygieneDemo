@@ -10,7 +10,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Website.Microsoft.Tests
 {
     [TestClass]
-    public class ScheduleTaskHygieneTests
+    public class SchedulePluginsHygieneTests
     {
         ///// <summary>
         ///// The following properties describes which ScheduledPlugIn attributes that should be checked.
@@ -27,7 +27,7 @@ namespace Website.Microsoft.Tests
         private readonly Assembly _assembly;
         private readonly IEnumerable<Type> _classes;
 
-        public ScheduleTaskHygieneTests()
+        public SchedulePluginsHygieneTests()
         {
             _assembly = typeof(Website.Global).Assembly;
             _classes = GetSchedulePlugInClasses();
