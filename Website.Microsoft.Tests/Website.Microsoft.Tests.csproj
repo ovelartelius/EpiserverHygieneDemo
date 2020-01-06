@@ -118,6 +118,7 @@
   <ItemGroup>
     <Compile Include="ContentTypesHygieneTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SchedulePluginsHygieneTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
