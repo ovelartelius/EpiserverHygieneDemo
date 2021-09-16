@@ -296,29 +296,34 @@ namespace Website.Nunit.Tests
 
                 foreach (Type type in _contentTypeClasses)
                 {
-                    var usedOrders = new Dictionary<int, string>();
+                    var usedOrders = new Dictionary<(int order, string groupname), string>();
 
-                    foreach (PropertyInfo property in type.GetProperties())
+                    foreach (var property in type.GetProperties())
                     {
-                        var displayAttribute = property.GetCustomAttribute(typeof(DisplayAttribute)) as DisplayAttribute;
-                        if (displayAttribute == null)
+                        if (!(property.GetCustomAttribute(typeof(DisplayAttribute)) is DisplayAttribute displayAttribute))
                         {
                             continue;
                         }
 
-                        int order = displayAttribute.GetOrder() ?? 0;
+                        var order = displayAttribute.GetOrder() ?? 0;
+                        var groupName = displayAttribute.GroupName ?? string.Empty;
                         if (order <= 0)
                         {
                             failList.Add($" \n{type.FullName}.{property.Name}: Property don't have a order index set.");
                         }
-                        else if (usedOrders.ContainsKey(order))
+
+                        // Consider groupname
+                        else if (!string.IsNullOrEmpty(groupName))
                         {
-                            //{contentTypeName}.{ePiPropertyInfo.PropertyName}
-                            failList.Add($"\n{type.FullName}.{usedOrders[order]}|{property.Name}: Properties use the same order index ({order}).");
-                        }
-                        else
-                        {
-                            usedOrders.Add(displayAttribute.Order, property.Name);
+                            if (usedOrders.ContainsKey((order, groupName)))
+                            {
+                                failList.Add(
+                                    $"\n{type.FullName}.{usedOrders[(order, groupName)]}|{property.Name}: Properties use the same order index ({order}).");
+                            }
+                            else
+                            {
+                                usedOrders.Add((order, groupName), property.Name);
+                            }
                         }
                     }
                 }
@@ -327,9 +332,9 @@ namespace Website.Nunit.Tests
                 {
                     failList.Insert(0, $"{failList.Count} issues found");
                 }
+
                 Assert.False(failList.Any(), MakeCsvNames(failList));
             }
-
         }
 
         /// <summary>
