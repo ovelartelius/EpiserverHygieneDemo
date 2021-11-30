@@ -36,7 +36,7 @@ namespace Website.Xunit.Tests
 				foreach (Type ctClass in _classes)
 				{
 					string attributeValue =
-						((PropertyDefinitionTypePlugInAttribute) ctClass.GetCustomAttributes(
+						((PropertyDefinitionTypePlugInAttribute)ctClass.GetCustomAttributes(
 							typeof(PropertyDefinitionTypePlugInAttribute), true)[0]).GUID;
 					// Check that the attribute value is not empty and contains more than 2 chars.
 					if (string.IsNullOrWhiteSpace(attributeValue) || attributeValue.Length < 3)
@@ -61,7 +61,7 @@ namespace Website.Xunit.Tests
 				foreach (Type ctClass in _classes)
 				{
 					string attributeValue =
-						((PropertyDefinitionTypePlugInAttribute) ctClass.GetCustomAttributes(
+						((PropertyDefinitionTypePlugInAttribute)ctClass.GetCustomAttributes(
 							typeof(PropertyDefinitionTypePlugInAttribute), true)[0]).GUID;
 					if (workingList.Get(attributeValue) != null)
 					{
@@ -89,7 +89,7 @@ namespace Website.Xunit.Tests
 				foreach (Type ctClass in _classes)
 				{
 					string attributeValue =
-						((PropertyDefinitionTypePlugInAttribute) ctClass.GetCustomAttributes(
+						((PropertyDefinitionTypePlugInAttribute)ctClass.GetCustomAttributes(
 							typeof(PropertyDefinitionTypePlugInAttribute), true)[0]).DisplayName;
 					// Check that the attribute value is not empty and contains more than 2 chars.
 					if (string.IsNullOrWhiteSpace(attributeValue) || attributeValue.Length < 3)
@@ -113,7 +113,7 @@ namespace Website.Xunit.Tests
 				foreach (Type ctClass in _classes)
 				{
 					string attributeValue =
-						((PropertyDefinitionTypePlugInAttribute) ctClass.GetCustomAttributes(
+						((PropertyDefinitionTypePlugInAttribute)ctClass.GetCustomAttributes(
 							typeof(PropertyDefinitionTypePlugInAttribute), true)[0]).Description;
 					// Check that the attribute value is not empty and contains more than 2 chars.
 					if (string.IsNullOrWhiteSpace(attributeValue) || attributeValue.Length < 3)
@@ -137,7 +137,7 @@ namespace Website.Xunit.Tests
 				foreach (Type ctClass in _classes)
 				{
 					string attributeValue =
-						((PropertyDefinitionTypePlugInAttribute) ctClass.GetCustomAttributes(
+						((PropertyDefinitionTypePlugInAttribute)ctClass.GetCustomAttributes(
 							typeof(PropertyDefinitionTypePlugInAttribute), true)[0]).LanguagePath;
 					// Check that the attribute value is not empty and contains more than 2 chars.
 					if (string.IsNullOrWhiteSpace(attributeValue) || attributeValue.Length < 3)
@@ -161,7 +161,7 @@ namespace Website.Xunit.Tests
 				foreach (Type ctClass in _classes)
 				{
 					int attributeValue =
-						((PropertyDefinitionTypePlugInAttribute) ctClass.GetCustomAttributes(
+						((PropertyDefinitionTypePlugInAttribute)ctClass.GetCustomAttributes(
 							typeof(PropertyDefinitionTypePlugInAttribute), true)[0]).SortIndex;
 					// Check that the attribute value is not 0 and higher then 0.
 					if (attributeValue <= 0)
@@ -181,8 +181,8 @@ namespace Website.Xunit.Tests
 		private IEnumerable<Type> GetPropertyDefinitionTypePlugInClasses()
 		{
 			var classes = from t in _assembly.GetTypes()
-				where t.IsClass && t.GetCustomAttributes(typeof(PropertyDefinitionTypePlugInAttribute), true).Any()
-				select t;
+						  where t.IsClass && t.GetCustomAttributes(typeof(PropertyDefinitionTypePlugInAttribute), true).Any()
+						  select t;
 			return classes;
 		}
 
