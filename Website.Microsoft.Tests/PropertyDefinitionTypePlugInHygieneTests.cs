@@ -76,7 +76,7 @@ namespace Website.Microsoft.Tests
 				}
 
 				Assert.IsFalse(failList.Any(),
-					$"{MakeCsvNames(failList)}\nMake sure that all SchedulePlugIns use unique GUIDs.");
+					$"{MakeCsvNames(failList)}\nMake sure that all PropertyDefinitionTypePlugIn use unique GUIDs.");
 			}
 		}
 
@@ -100,7 +100,7 @@ namespace Website.Microsoft.Tests
 				}
 
 				Assert.IsFalse(failList.Any(),
-					$"The following SchedulePlugIns does not have a DisplayName attribute.{MakeCsvNames(failList)}\nGo to the SchedulePlugIn and set a correct value in the DisplayName attribute.");
+					$"The following PropertyDefinitionTypePlugIns does not have a DisplayName attribute.{MakeCsvNames(failList)}\nGo to the PropertyDefinitionTypePlugIn and set a correct value in the DisplayName attribute.");
 			}
 		}
 

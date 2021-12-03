@@ -11,9 +11,11 @@ namespace Website.Models.Properties
     /// <remarks>For an example, see <see cref="Website.Models.Pages.SitePageData"/> where this property type is used for the MetaKeywords property</remarks>
     [EditorHint(Global.SiteUIHints.Strings)]
     [PropertyDefinitionTypePlugIn(
-	    Description = "A property for list of strings",
-	    //GUID = "02977710-5db6-4720-805d-f8fb0a6b45d4",
-        DisplayName = "String List")]
+	    GUID = "02977710-5db6-4720-805d-f8fb0a6b45d4",
+        Description = "A property for list of strings",
+        DisplayName = "String List",
+        LanguagePath = "/myprops/stringlist/",
+	    SortIndex = 100)]
     public class PropertyStringList : PropertyLongString
     {
         protected String Separator = "\n";
